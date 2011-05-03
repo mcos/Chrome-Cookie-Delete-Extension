@@ -1,0 +1,13 @@
+{
+  // Required
+  "name": "Delete Site Cookies",
+  "version": "0.1",
+
+  // Recommended
+  "description": "An extension to delete cookies from configurable urls",
+
+  // Add any of these that you need
+  "background_page": "background.html",
+  "options_page": "urls.html",
+  "permissions": [ "cookies", "tabs", "http://*/*", "https://*/*" ]
+}

@@ -1,0 +1,32 @@
+<html>
+<script>
+//Map of all opened tabs keyed by tabId
+var allOpenTabs = {};
+	//Gets all open windows.
+chrome.tabs.getAllInWindow(null, function(tabs){
+  for (var key in tabs) {
+    allOpenTabs[tabs[key].id] = tabs[key]; 
+  }
+});
+
+//Listener on update.
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  if (changeInfo.status == 'complete') {
+    if (tab === undefined) return;
+    allOpenTabs[tabId] = tab;
+  }
+});
+chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
+	var cookieArray = [];
+	chrome.cookies.getAll({}, function(cookies) {
+    	//cookieArray = cookies;
+    	//console.log(cookieArray);
+    	for(var i in cookies) {
+    		cookieArray.push(cookies[i]);
+    	}
+  	});
+  	console.log(cookieArray[0]);
+  	console.log(allOpenTabs[tabId]);
+});
+</script>
+</html>

@@ -1,0 +1,11 @@
+Chrome Extension
+
+@Author: Mark Costello
+@Date: 5/1/2011
+@Description: This is the plan and design document for this chrome extension
+
+Aim of extension: Allow users to configure a list of websites that will have their cookies deleted from the browser when they close the last open tab from that particular site.
+
+Process:
+Users will enter a website(s) into a list on the extensions options page.
+On the close of each tab, the url compared to the list of configured urls for the extension, this tabs url will then be compared to the list of urls of the open tabs. If this is the last open tab of a configured url, then the cookies for this domain will be deleted.

@@ -4,24 +4,23 @@
         	Cookie Deletion for URLs
         </title>
         <script type="text/javascript">
-			// Saves options to localStorage.
-			function saveUrl() {
-				var urls = localStorage["urls"]
-				urls = (urls === undefined) ? [] : JSON.parse(urls);
-			  	var url = document.getElementById("urlInput").value;
-			  	urls.push(url);
-			  	localStorage["urls"] = JSON.stringify(urls);
-			  	alert(url);
-			  	document.getElementById("urlsDiv").innerHTML += url;
+		// Saves options to localStorage.
+		function saveUrl() {
+			var urls = localStorage["urls"]
+			urls = (urls === undefined) ? [] : JSON.parse(urls);
+			var url = document.getElementById("urlInput").value;
+			urls.push(url);
+			localStorage["urls"] = JSON.stringify(urls);
+			document.getElementById("urlsDiv").innerHTML += url;
+		}
+					
+		// Restores select box state to saved value from localStorage.
+		function showUrls() {
+			var urls = JSON.parse(localStorage["urls"]);
+			for(var i in urls) {
+				document.getElementById("urlsDiv").innerHTML += urls[i];
 			}
-			
-			// Restores select box state to saved value from localStorage.
-			function showUrls() {
-			  var urls = JSON.parse(localStorage["urls"]);
-			  for(var i in urls) {
-			  		document.getElementById("urlsDiv").innerHTML += urls[i];
-			  }
-			}
+		}
 		</script>
     </head>
     <body onload="showUrls();">

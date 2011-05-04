@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>
+        	Cookie Deletion for URLs
+        </title>
+        <script type="text/javascript">
+			// Saves options to localStorage.
+			function saveUrl() {
+				var urls = localStorage["urls"]
+				urls = (urls === undefined) ? [] : JSON.parse(urls);
+			  	var url = document.getElementById("urlInput").value;
+			  	urls.push(url);
+			  	localStorage["urls"] = JSON.stringify(urls);
+			  	alert(url);
+			  	document.getElementById("urlsDiv").innerHTML += url;
+			}
+			
+			// Restores select box state to saved value from localStorage.
+			function showUrls() {
+			  var urls = JSON.parse(localStorage["urls"]);
+			  for(var i in urls) {
+			  		document.getElementById("urlsDiv").innerHTML += urls[i];
+			  }
+			}
+		</script>
+    </head>
+    <body onload="showUrls();">
+    	<input type="text" id="urlInput" /><button id="saveUrl" onclick="saveUrl()">Save</button>
+    	<div id="urlsDiv"></div>
+    </body>
+</html>

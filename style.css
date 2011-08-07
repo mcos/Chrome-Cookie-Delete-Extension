@@ -1,0 +1,55 @@
+body {
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+  font-family:Helvetica, Tahoma, Arial, sans-serif;
+  color: #353535;
+}
+ .wrapper {
+   margin: 0 auto;
+   margin-top: 50px;
+   width: 720px;
+   height: 600px;
+   border: 1px solid blue;
+   padding: 50px;
+   overflow:hidden;
+}
+.main {
+  margin: 0 auto;
+  border: 1px solid gray;
+  height: 100%;
+}
+.mainContainer {
+  height:50px;
+  background-color:blue;
+}
+.inputContainer {
+  height: 50px;
+  line-height:50px;
+  text-align: center;
+}
+.inputContainer input {
+  width: 430px;
+  font-size: 16px;
+}
+.inputContainer button {
+  font-size: 16px;
+}
+#main .inputLine{
+  height: 30px;
+  white-space: nowrap;
+  position: relative;
+}
+#urlsDiv {
+  height:550px;
+  border:1px solid green;
+  overflow:auto;
+}
+#urlsDiv div {
+  height: 2em;
+  line-height: 2em;
+}
+#urlsDiv div:hover {
+  background-color:red;
+}
+

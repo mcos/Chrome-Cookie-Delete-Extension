@@ -1,30 +1,42 @@
+<!doctype html>
 <html>
-    <head>
-        <title>
-        	Cookie Deletion for URLs
-        </title>
-        <script type="text/javascript">
-		// Saves options to localStorage.
-		function saveUrl() {
-			var urls = localStorage["urls"]
-			urls = (urls === undefined) ? [] : JSON.parse(urls);
-			var url = document.getElementById("urlInput").value;
-			urls.push(url);
-			localStorage["urls"] = JSON.stringify(urls);
-			document.getElementById("urlsDiv").innerHTML += url;
-		}
-					
-		// Restores select box state to saved value from localStorage.
-		function showUrls() {
-			var urls = JSON.parse(localStorage["urls"]);
-			for(var i in urls) {
-				document.getElementById("urlsDiv").innerHTML += urls[i];
-			}
-		}
-		</script>
-    </head>
-    <body onload="showUrls();">
-    	<input type="text" id="urlInput" /><button id="saveUrl" onclick="saveUrl()">Save</button>
-    	<div id="urlsDiv"></div>
-    </body>
+<head>
+<title>
+  Cookie Deletion for URLs
+</title>
+<script type="text/javascript">
+  // Saves options to localStorage.
+  function saveUrl() {
+    var urls = localStorage["urls"]
+    urls = (urls === undefined) ? [] : JSON.parse(urls);
+    var url = document.getElementById("urlInput").value;
+    urls.push(url);
+    localStorage["urls"] = JSON.stringify(urls);
+    document.getElementById("urlsDiv").innerHTML += "<div>" + url + "</div>";
+  }
+
+  // Restores select box state to saved value from localStorage.
+  function showUrls() {
+    var urls = JSON.parse(localStorage["urls"]);
+    for(var i in urls) {
+      document.getElementById("urlsDiv").innerHTML += "<div>" + urls[i] + "</div>";
+    }
+  }
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="showUrls();">
+<div class="wrapper">
+  <div class="main">
+    <div class="mainContainer">
+      <div class="inputContainer">
+        <input type="text" id="urlInput"></input>
+        <button id="saveUrl" onclick="saveUrl()">Add</button>
+      </div>
+         </div>
+        <div id="urlsDiv"></div>
+
+       </div>
+</div>
+</body>
 </html>
